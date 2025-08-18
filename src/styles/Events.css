@@ -1,0 +1,31 @@
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.event-card {
+  background: #fff;
+  padding: 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.event-card h4 {
+  margin: 0 0 4px;
+  color: var(--color-primario);
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+}
+
+.event-card .muted {
+  font-size: 0.85rem;
+  color: #666;
+}

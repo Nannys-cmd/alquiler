@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@400;500&display=swap');
+@import '../styles/Variables.css';
+
+/* Resets y estilos globales */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: #f6f6f6;
+  margin: 0;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #0077cc;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #005fa3;
+}
+
+.muted {
+  color: #666;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-fondo);
+  padding: 20px;
+  box-shadow: var(--sombra);
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  background: var(--color-acento);
+  border-radius: 50%;
+  color: var(--color-texto-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.search-demo {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.search-demo input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.search-demo button {
+  background: var(--color-primario);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-demo button:hover {
+  background: var(--color-acento);
+}
+
+.calendar-events-container {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+/* Wrapper calendario */
+.calendar-wrapper {
+  flex: 1 1 320px; /* Se adapta */
+  max-width: 400px; /* No muy grande */
+}
+
+/* Wrapper eventos */
+.events-wrapper {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.overlay.disponible { background: rgba(0,128,0,0.6); }
+.overlay.no-disponible { background: rgba(200,0,0,0.6); }
+
+.extra-info {
+  display: none;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 6px;
+}
+
+.card:hover .extra-info {
+  display: block;
+}
+
+.contact-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.contact-card label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.contact-card input[type="text"],
+.contact-card input[type="email"],
+.contact-card input[type="file"] {
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: var(--fuente-principal);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-buttons .btn {
+  flex: 1;
+  text-align: center;
+}
+
+.footer {
+  background: var(--color-swans-down);
+  color: var(--color-texto);
+  text-align: center;
+  padding: 16px;
+  font-size: 0.9rem;
+  margin-top: 24px;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.05);
+}

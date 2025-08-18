@@ -1,0 +1,14 @@
+:root {
+  --color-primario: #B6E3E9;
+  --color-secundario: #FAD4AE;
+  --color-acento: #FDAFAB;
+  --color-fondo: #FAF1D6;
+  --color-texto: #333;
+  --color-texto-claro: #fff;
+
+  --radius: 8px;
+  --sombra: 0 2px 8px rgba(0,0,0,0.1);
+
+  --fuente-principal: 'Poppins', sans-serif;
+  --fuente-titulos: 'Montserrat', sans-serif;
+}
