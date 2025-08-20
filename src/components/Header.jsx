@@ -6,7 +6,7 @@ export default function Header() {
     <header className="header">
       <div className="brand">
         <div className="logo">🏠</div>
-        <h1>Arca Propiedades</h1>
+        <h1>GoodPlace</h1>
       </div>
       <div className="search-demo">
         <input type="text" placeholder="Ciudad o barrio" />

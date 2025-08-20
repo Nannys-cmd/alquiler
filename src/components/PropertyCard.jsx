@@ -13,7 +13,19 @@ export default function PropertyCard({ prop }) {
           >
             {prop.available ? "Disponible" : "No disponible"}
           </span>
-          {prop.price && <span className="price-tag">${prop.price}/noche</span>}
+
+          {prop.price && (
+            <span
+              className="price-tag"
+              aria-label={`Precio ${prop.price} dólares por noche`}
+            >
+              {"US$ " +
+                new Intl.NumberFormat("en-US", {
+                  maximumFractionDigits: 0,
+                }).format(prop.price)}{" "}
+              / noche
+            </span>
+          )}
         </div>
       </div>
 
