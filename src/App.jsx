@@ -19,8 +19,12 @@ export default function App() {
 
   const handleReserve = (property) => {
     setSelectedProperty(property);
-    setSelectedDates([]); // abre BookingForm con propiedad seleccionada
-    window.scrollTo({ top: 0, behavior: "smooth" }); // opcional: hace scroll arriba
+    setSelectedDates([null, null]); // abrir BookingForm sin fechas todavía
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleDateChange = (dates) => {
+    setSelectedDates(dates);
   };
 
   return (
@@ -36,7 +40,7 @@ export default function App() {
         <div className="calendar-wrapper">
           <h2 className="section-title">Seleccioná tus fechas</h2>
           <p className="section-subtitle">Consulta disponibilidad y eventos locales</p>
-          <CalendarComponent events={events} onDateChange={setSelectedDates} />
+          <CalendarComponent events={events} onDateChange={handleDateChange} />
         </div>
         <div className="events-wrapper">
           <h2 className="section-title">Próximos eventos</h2>
@@ -44,9 +48,8 @@ export default function App() {
         </div>
       </section>
 
-      {selectedDates && selectedProperty && (
+      {selectedProperty && (
         <section className="booking-section">
-          <h2 className="section-title">Formulario de reserva</h2>
           <BookingForm property={selectedProperty} selectedDates={selectedDates} />
         </section>
       )}
@@ -71,3 +74,4 @@ export default function App() {
     </div>
   );
 }
+

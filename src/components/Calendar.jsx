@@ -5,11 +5,11 @@ import "../styles/Calendar.css";
 import { availability } from "../data/availability";
 
 export default function CalendarComponent({ events, onDateChange }) {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDates, setSelectedDates] = useState([null, null]);
 
-  const handleChange = (date) => {
-    setSelectedDate(date);
-    if (onDateChange) onDateChange(date);
+  const handleChange = (dates) => {
+    setSelectedDates(dates);
+    if (onDateChange) onDateChange(dates);
   };
 
   const tileClassName = ({ date }) => {
@@ -17,11 +17,9 @@ export default function CalendarComponent({ events, onDateChange }) {
     const state = availability[day];
 
     if (!state) return "";
-
     if (!state.booking && !state.airbnb) return "no-disponible";
     if (state.booking && state.airbnb) return "disponible";
     if (state.booking || state.airbnb) return "semi-disponible";
-
     return "";
   };
 
@@ -34,8 +32,9 @@ export default function CalendarComponent({ events, onDateChange }) {
   return (
     <div className="calendar-wrapper">
       <Calendar
+        selectRange={true}
         onChange={handleChange}
-        value={selectedDate}
+        value={selectedDates}
         tileClassName={tileClassName}
         tileContent={tileContent}
       />

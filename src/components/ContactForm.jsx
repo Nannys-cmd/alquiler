@@ -21,7 +21,6 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <h2>Contacto</h2>
       <label htmlFor="name">Nombre</label>
       <input
         type="text"
