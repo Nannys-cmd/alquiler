@@ -3,6 +3,16 @@
   margin: 1.5rem 0;
 }
 
+.properties-carousel .slick-slide > div {
+  height: 100%;
+  display: flex;          /* estira las cards */
+  align-items: stretch;
+}
+
+.properties-carousel .card {
+  flex: 1;               /* hace que cada card se estire igual */
+}
+
 /* Dots position */
 .slick-dots {
   bottom: -25px;

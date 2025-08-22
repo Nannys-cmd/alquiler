@@ -6,7 +6,8 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100%;       /* ✔ se asegura de ocupar todo el alto */
+  min-height: 360px;  /* ✔ fuerza un mínimo igualado (ajustá este valor a gusto) */
 }
 
 .card:hover {
@@ -101,4 +102,3 @@
   background: var(--color-acento);
   color: #fff;
 }
-
