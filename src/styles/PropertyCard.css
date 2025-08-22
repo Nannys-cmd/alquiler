@@ -4,6 +4,9 @@
   box-shadow: var(--sombra);
   background: #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card:hover {
@@ -53,23 +56,29 @@
 
 .card-content {
   padding: 12px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-content h3 {
   font-family: var(--fuente-titulos);
-  margin: 0;
+  margin: 0 0 5px;
   font-size: 1.2rem;
   color: #222;
 }
 
 .card-content .muted {
   color: #666;
-  margin: 5px 0 10px;
+  margin: 0 0 10px;
+  font-size: 0.9rem;
 }
 
 .actions {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .actions .btn {
@@ -82,3 +91,14 @@
 }
 
 .actions .btn:hover { background: #005a99; }
+
+.reserve-btn {
+  background: var(--color-primario);
+  color: #222;
+}
+
+.reserve-btn:hover {
+  background: var(--color-acento);
+  color: #fff;
+}
+

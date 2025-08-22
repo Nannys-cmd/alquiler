@@ -1,8 +1,7 @@
-/*PropertyCard.jsx*/
 import React from "react";
 import "../styles/PropertyCard.css";
 
-export default function PropertyCard({ property }) {
+export default function PropertyCard({ property, onReserve }) {
   return (
     <div className="card">
       <div className="image-wrapper">
@@ -14,10 +13,15 @@ export default function PropertyCard({ property }) {
           <span className="price-tag">USD {property.price}/noche</span>
         </div>
       </div>
+
       <div className="card-content">
         <h3>{property.title}</h3>
         <p className="muted">{property.subtitle}</p>
+
         <div className="actions">
+          <button className="btn reserve-btn" onClick={() => onReserve(property)}>
+            Reserva
+          </button>
           <a
             href={property.bookingLink}
             target="_blank"

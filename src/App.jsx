@@ -10,30 +10,32 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function App() {
   const [selectedDates, setSelectedDates] = useState(null);
+  const [selectedProperty, setSelectedProperty] = useState(null);
 
-  // Eventos de ejemplo
   const events = [
     { date: "2025-08-25", title: "Fiesta local en la plaza" },
     { date: "2025-08-30", title: "Mercado artesanal" },
   ];
 
+  const handleReserve = (property) => {
+    setSelectedProperty(property);
+    setSelectedDates([]); // abre BookingForm con propiedad seleccionada
+    window.scrollTo({ top: 0, behavior: "smooth" }); // opcional: hace scroll arriba
+  };
+
   return (
     <div className="app">
       <Header />
 
-      {/* PROPIEDADES */}
       <section className="properties-section">
         <h2 className="section-title">Propiedades destacadas</h2>
-        <PropertyList properties={properties} />
+        <PropertyList properties={properties} onReserve={handleReserve} />
       </section>
 
-      {/* CALENDARIO + EVENTOS */}
       <section className="calendar-events-section">
         <div className="calendar-wrapper">
           <h2 className="section-title">Seleccioná tus fechas</h2>
-          <p className="section-subtitle">
-            Consulta disponibilidad y eventos locales
-          </p>
+          <p className="section-subtitle">Consulta disponibilidad y eventos locales</p>
           <CalendarComponent events={events} onDateChange={setSelectedDates} />
         </div>
         <div className="events-wrapper">
@@ -42,19 +44,18 @@ export default function App() {
         </div>
       </section>
 
-      {/* FORMULARIO DE RESERVA */}
-      {selectedDates && (
-        <section>
-          <BookingForm selectedDates={selectedDates} />
+      {selectedDates && selectedProperty && (
+        <section className="booking-section">
+          <h2 className="section-title">Formulario de reserva</h2>
+          <BookingForm property={selectedProperty} selectedDates={selectedDates} />
         </section>
       )}
 
-      {/* FORMULARIO DE CONTACTO */}
-      <section>
+      <section className="contact-section">
+        <h2 className="section-title">Contacto</h2>
         <ContactForm />
       </section>
 
-      {/* BOTÓN WHATSAPP */}
       <a
         href="https://wa.me/2616988016"
         target="_blank"

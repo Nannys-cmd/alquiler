@@ -3,37 +3,51 @@
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--sombra);
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-.booking-form h3 {
-  font-family: var(--fuente-titulos);
+.booking-form h2 {
   text-align: center;
   margin-bottom: 1.5rem;
+  font-size: 1.6rem;
   color: #222;
+  font-family: var(--fuente-titulos);
 }
 
-.booking-form input {
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 0.7rem;
   border: 1px solid #ddd;
-  border-radius: var(--radius);
-  margin-bottom: 1rem;
+  border-radius: 6px;
   font-size: 1rem;
+  font-family: var(--fuente-principal);
 }
 
-.booking-form button {
+.btn-submit {
+  display: block;
   width: 100%;
   padding: 0.9rem;
-  background: var(--color-primario);
-  color: #222;
+  background: #0097b2;
+  color: white;
   border: none;
-  border-radius: var(--radius);
+  border-radius: 8px;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.booking-form button:hover {
-  background: var(--color-acento);
-}
+.btn-submit:hover { background: #007a8d; }

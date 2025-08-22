@@ -1,37 +1,16 @@
-/* PropertyList.css*/
-.properties-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin: 2rem auto;
-  max-width: 1200px;
+.properties-carousel {
+  margin: 1.5rem 0;
 }
 
-.panel-demo {
-  padding: 16px;
-  border-radius: var(--radius);
-  background: #fff;
-  box-shadow: var(--sombra);
+.slick-dots {
+  bottom: -25px;
 }
 
-.panel-demo h3 {
-  margin-bottom: 8px;
-}
+.slick-prev,
+.slick-next { z-index: 2; }
 
-.panel-demo .muted {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 12px;
-}
-
-.panel-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.panel-item .btn {
-  font-size: 0.85rem;
-  padding: 6px 10px;
+.slick-prev:before,
+.slick-next:before {
+  color: #0071c2;
+  font-size: 24px;
 }

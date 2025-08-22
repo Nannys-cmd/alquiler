@@ -2,7 +2,7 @@
 export const properties = [
   {
     id: 1,
-    title: "Amazing spacious apt in the heart of Palermo",
+    title: "Amazing wide apartment in the heart of Palermo",
     subtitle: "Palermo · Moderno y amplio · Ideal ubicación",
     img: "/sample1.jpg",
     available: true,
