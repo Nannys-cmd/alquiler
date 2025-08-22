@@ -1,3 +1,4 @@
+/*PropertyCard.jsx*/
 import React from "react";
 import "../styles/PropertyCard.css";
 
@@ -18,12 +19,12 @@ export default function PropertyCard({ property }) {
         <p className="muted">{property.subtitle}</p>
         <div className="actions">
           <a
-            href={property.airbnbLink}
+            href={property.bookingLink}
             target="_blank"
             rel="noopener noreferrer"
             className="btn"
           >
-            Ver en Airbnb
+            Ver en Booking.com
           </a>
         </div>
       </div>
