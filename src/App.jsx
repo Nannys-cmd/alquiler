@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Header from "./components/Header";
 import PropertyList from "./components/PropertyList";
 import CalendarComponent from "./components/Calendar";
@@ -9,8 +9,11 @@ import { properties } from "./data/properties";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function App() {
-  const [selectedDates, setSelectedDates] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(null);
+  const [selectedDates, setSelectedDates] = useState([null, null]);
+  const [highlightCalendar, setHighlightCalendar] = useState(false);
+
+  const calendarRef = useRef(null);
 
   const events = [
     { date: "2025-08-25", title: "Fiesta local en la plaza" },
@@ -19,8 +22,11 @@ export default function App() {
 
   const handleReserve = (property) => {
     setSelectedProperty(property);
-    setSelectedDates([null, null]); // abrir BookingForm sin fechas todavía
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Scroll suave al calendario
+    calendarRef.current.scrollIntoView({ behavior: "smooth" });
+    // Destacar el calendario temporalmente
+    setHighlightCalendar(true);
+    setTimeout(() => setHighlightCalendar(false), 2500);
   };
 
   const handleDateChange = (dates) => {
@@ -37,7 +43,10 @@ export default function App() {
       </section>
 
       <section className="calendar-events-section">
-        <div className="calendar-wrapper">
+        <div
+          className={`calendar-wrapper ${highlightCalendar ? "highlight" : ""}`}
+          ref={calendarRef}
+        >
           <h2 className="section-title">Seleccioná tus fechas</h2>
           <p className="section-subtitle">Consulta disponibilidad y eventos locales</p>
           <CalendarComponent events={events} onDateChange={handleDateChange} />
@@ -48,7 +57,7 @@ export default function App() {
         </div>
       </section>
 
-      {selectedProperty && (
+      {selectedProperty && selectedDates[0] && (
         <section className="booking-section">
           <BookingForm property={selectedProperty} selectedDates={selectedDates} />
         </section>
@@ -74,4 +83,3 @@ export default function App() {
     </div>
   );
 }
-

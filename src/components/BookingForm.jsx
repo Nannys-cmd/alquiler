@@ -33,7 +33,11 @@ export default function BookingForm({ property, selectedDates }) {
       selectedDates,
       property: property.title,
     });
+
     alert("Reserva enviada correctamente ✅");
+
+    // Scroll suave al inicio de la página
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const formatDates = () => {
@@ -75,7 +79,9 @@ export default function BookingForm({ property, selectedDates }) {
       </div>
 
       <div className="form-group">
-        <label htmlFor="dni">Subí el <strong>frente del DNI</strong></label>
+        <label htmlFor="dni">
+          Subí el <strong>frente del DNI</strong>
+        </label>
         <input
           type="file"
           name="dni"
@@ -100,6 +106,15 @@ export default function BookingForm({ property, selectedDates }) {
 
       <button type="submit" className="btn-submit">
         Pagar 10% y Reservar
+      </button>
+
+      {/* Botón adicional para volver al inicio */}
+      <button
+        type="button"
+        className="btn-back"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        Volver al inicio
       </button>
     </form>
   );

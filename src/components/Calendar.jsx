@@ -30,7 +30,7 @@ export default function CalendarComponent({ events, onDateChange }) {
   };
 
   return (
-    <div className="calendar-wrapper">
+    <div className="calendar-component">
       <Calendar
         selectRange={true}
         onChange={handleChange}
