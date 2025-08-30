@@ -78,8 +78,10 @@
 
 .actions {
   display: flex;
+  justify-content: center; /* centra el contenido horizontalmente */
   gap: 10px;
   flex-wrap: wrap;
+  margin-top: auto; /* empuja hacia abajo si querés que quede al final */
 }
 
 .actions .btn {
@@ -93,12 +95,31 @@
 
 .actions .btn:hover { background: #005a99; }
 
+.property-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; /* centra horizontalmente */
+  text-align: center;
+  padding: 1rem;
+}
+
 .reserve-btn {
-  background: var(--color-primario);
-  color: #222;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: #0077b6;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 80%;          /* ocupa 80% del ancho de la tarjeta */
+  max-width: 200px;    /* pero no más de 200px */
 }
 
 .reserve-btn:hover {
-  background: var(--color-acento);
-  color: #fff;
+  background: #023e8a; /* tono más oscuro al pasar */
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
 }

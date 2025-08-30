@@ -10,7 +10,6 @@ body {
   color: var(--color-texto);
 }
 
-/* Links */
 a { text-decoration: none; color: inherit; }
 
 /* Botones generales */
@@ -24,52 +23,97 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
   transition: background 0.2s ease;
 }
-
 .btn:hover { background: var(--color-acento); }
 
-/* Header */
+/* Header con banner */
 .header {
+  width: 100%;
+  height: 80vh; /* un poquito más compacto que full screen */
+  position: relative;
+  overflow: hidden;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35); /* overlay más sutil */
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--color-acento);
-  padding: 20px;
-  box-shadow: var(--sombra);
-  gap: 15px;
-}
-
-.header .brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.header .logo {
-  width: 50px;
-  height: 50px;
-  background: var(--color-primario);
-  border-radius: 50%;
-  color: var(--color-texto-claro);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.2rem;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+  z-index: 2; /* arriba del slider*/
 }
 
+.brand h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--fuente-titulos);
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.8);
+}
+
+/* Buscador */
 .search-demo {
   display: flex;
-  gap: 8px;
+  gap: 1rem;
   flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1rem;
+  border-radius: 10px;
+  justify-content: center;
 }
 
 .search-demo input,
 .search-demo button {
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
   border: 1px solid #ddd;
+  font-size: 0.95rem;
 }
 
+.search-demo button {
+  background-color: #ff6b6b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.search-demo button:hover {
+  background-color: #ff4b4b;
+}
+
+/* Contacto */
 .contact-form {
   max-width: 600px;
   margin: 40px auto;
@@ -163,10 +207,14 @@ a { text-decoration: none; color: inherit; }
   gap: 2rem;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .calendar-events-section {
     grid-template-columns: 1fr;
   }
-
-  .search-demo { flex-direction: column; width: 100%; }
+  .search-demo { flex-direction: column; width: 90%; margin: 0 auto; }
+  .search-demo input,
+  .search-demo button {
+    width: 100%;
+  }
 }

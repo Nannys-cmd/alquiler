@@ -1,24 +1,32 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import PropertyList from "./components/PropertyList";
 import CalendarComponent from "./components/Calendar";
 import BookingForm from "./components/BookingForm";
 import ContactForm from "./components/ContactForm";
 import Events from "./components/Events";
-import { properties } from "./data/properties";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function App() {
+  const [properties, setProperties] = useState([]);
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [selectedDates, setSelectedDates] = useState([null, null]);
   const [highlightCalendar, setHighlightCalendar] = useState(false);
 
-  const calendarRef = useRef(null);
+  const calendarRef = React.useRef(null);
 
   const events = [
     { date: "2025-08-25", title: "Fiesta local en la plaza" },
     { date: "2025-08-30", title: "Mercado artesanal" },
   ];
+
+  // 🔹 Traer propiedades desde la API
+  useEffect(() => {
+    fetch("http://localhost:5000/api/properties")
+      .then(res => res.json())
+      .then(data => setProperties(data))
+      .catch(err => console.error("Error al traer propiedades:", err));
+  }, []);
 
   const handleReserve = (property) => {
     setSelectedProperty(property);
