@@ -77,7 +77,7 @@ export default function App() {
       </section>
 
       <a
-        href="https://wa.me/2616988016"
+        href="https://wa.me/5491157826522"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-btn"
